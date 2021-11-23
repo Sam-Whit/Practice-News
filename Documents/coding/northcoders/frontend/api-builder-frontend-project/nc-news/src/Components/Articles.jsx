@@ -1,23 +1,21 @@
 import { useEffect, useState} from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import { getArticles } from './Utils/ApiCalls';
 
-const Articles = () => {
+const Articles = ({query}) => {
     const [articles, setarticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const params = useParams();
     
-    console.log(params, "in Articles");
 
 useEffect(() => {
     setIsLoading(true);
-    getArticles().then((articles) => {
+    getArticles(query).then((articles) => {
         setarticles(articles)
         setIsLoading(false)}).catch((err) => {
             console.log(err)
         })
-}, [])
+}, [query])
 
 if (isLoading) return <p>Loading...</p>;
 

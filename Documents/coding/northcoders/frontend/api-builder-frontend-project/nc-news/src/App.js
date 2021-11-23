@@ -4,19 +4,25 @@ import Header from "./Components/Header";
 import NavBar from "./Components/NavBar";
 import SubNav from "./Components/SubNav";
 import Articles from "./Components/Articles";
+import Article from "./Components/Article";
+import { useState } from "react";
 
 function App() {
+  const [query, setQuery] = useState("");
   return (
     <BrowserRouter>
       <div className="App"></div>
-      <Header />
-      <NavBar />
+      <Header setQuery={setQuery} />
+      <NavBar setQuery={setQuery} />
       <SubNav />
       <Routes>
-        <Route path="/" element={<Articles />}></Route>
+        <Route path="/" element={<Articles query={query} />}></Route>
+        <Route path="/articles" element={<Articles query={query} />}></Route>
+        <Route
+          path="/articles/:article_id"
+          element={<Article query={query} />}
+        ></Route>
       </Routes>
-      <Routes path="/articles" element={<Articles />}></Routes>
-      <Routes path="/articles/:topic" element={<Articles />}></Routes>
     </BrowserRouter>
   );
 }

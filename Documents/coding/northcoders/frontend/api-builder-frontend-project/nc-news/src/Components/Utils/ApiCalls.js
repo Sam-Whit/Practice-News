@@ -10,8 +10,20 @@ export function gettopics() {
   });
 }
 
-export function getArticles() {
-  return newsApi.get("/articles").then((res) => {
+export function getArticles(query) {
+  let queryStr = `/articles`;
+  if (query) {
+    queryStr += `?topic=${query}`;
+  }
+  return newsApi.get(queryStr).then((res) => {
     return res.data.articles;
+  });
+}
+
+export function getSingleArticle(article_id) {
+  return newsApi.get(`/articles/${article_id}`).then((data) => {
+    const { article } = data.data;
+    console.log(article);
+    return article;
   });
 }
