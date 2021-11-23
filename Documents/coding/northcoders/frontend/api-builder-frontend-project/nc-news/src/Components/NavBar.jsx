@@ -11,11 +11,10 @@ const NavBar = () => {
         })
     }, []);
 
-    console.log(topics);
     return <nav className='NavBar'>
-        {/* {articles.map((topic) => {
-            return <Link to={""}></Link>
-        }) } */}
+        {topics.map((topic) => {
+            return <Link to={`/topics/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
+        }) }
     </nav>
 };
 
