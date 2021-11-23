@@ -13,7 +13,7 @@ const NavBar = () => {
 
     return <nav className='NavBar'>
         {topics.map((topic) => {
-            return <Link to={`/topics/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
+            return <Link to={`/articles/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
         }) }
     </nav>
 };

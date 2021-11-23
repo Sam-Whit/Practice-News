@@ -5,16 +5,21 @@ import { getArticles } from './Utils/ApiCalls';
 
 const Articles = () => {
     const [articles, setarticles] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
     
-    console.log(params, "in Game");
+    console.log(params, "in Articles");
 
 useEffect(() => {
+    setIsLoading(true);
     getArticles().then((articles) => {
-        setarticles(articles)}).catch((err) => {
+        setarticles(articles)
+        setIsLoading(false)}).catch((err) => {
             console.log(err)
         })
 }, [])
+
+if (isLoading) return <p>Loading...</p>;
 
   return <main className="articles">
         <h2>Articles</h2>
@@ -23,7 +28,7 @@ useEffect(() => {
             {articles.map((article) => {
 
                 return (<li className="articleList" key={article.article_id}>
-                <Link to={`/api/articles/${article.article_id}`}>
+                <Link to={`/articles/${article.article_id}`}>
                 <h3>{article.title}</h3>
                 </Link>
                 <p>Topic: {article.topic}</p>
