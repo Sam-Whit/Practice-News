@@ -28,3 +28,9 @@ export function getSingleArticle(article_id) {
     return article;
   });
 }
+
+export function getUsers() {
+  return newsApi.get("/users").then((res) => {
+    return res.data.users;
+  });
+}
