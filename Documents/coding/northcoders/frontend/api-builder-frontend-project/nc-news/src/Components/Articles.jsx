@@ -6,6 +6,7 @@ import { getArticles } from './Utils/ApiCalls';
 const Articles = ({query}) => {
     const [articles, setarticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [err, setErr] = useState(false);
     
 
 useEffect(() => {
@@ -13,11 +14,15 @@ useEffect(() => {
     getArticles(query).then((articles) => {
         setarticles(articles)
         setIsLoading(false)}).catch((err) => {
-            console.log(err)
+            setIsLoading(false);
+            console.log(err);
+            setErr(true);
         })
 }, [query])
 
 if (isLoading) return <p>Loading...</p>;
+
+if (err) return  <h2>Oops something went wrong...</h2>
 
   return <main className="articles">
         <h2>Articles</h2>

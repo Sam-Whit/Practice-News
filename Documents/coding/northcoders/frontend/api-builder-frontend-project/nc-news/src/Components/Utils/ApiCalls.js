@@ -12,6 +12,7 @@ export function gettopics() {
 
 export function getArticles(query) {
   let queryStr = `/articles`;
+  console.log(query);
   if (query) {
     queryStr += `?topic=${query}`;
   }
