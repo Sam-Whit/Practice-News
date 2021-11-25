@@ -27,7 +27,7 @@ export const Comments = () => {
     const PostCommentHide = ({ children }) => {
         const [isOpen, setIsOpen] = useState(false);
     
-        const toggleOpen = () => setIsOpen((currOpen) => !currOpen);
+        const toggleOpen = () => setIsOpen((open) => !open);
     
         return (
           <>
