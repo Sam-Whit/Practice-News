@@ -10,6 +10,7 @@ const Article = () => {
     useEffect(() => {
 		getSingleArticle(article_id).then(article => {
 			setArticle(article);
+            console.log(article);
 		});
 
     })
@@ -22,7 +23,7 @@ const Article = () => {
         <p>{article.body}</p>
         <p>Votes: {article.votes}</p>
         <button onClick={() => {
-                navigate('/').catch((err) => {console.log(err)})}}>
+                navigate(`/articles/${article.article_id}/comments`)}}>
                     Comments
 			</button>
         </div>

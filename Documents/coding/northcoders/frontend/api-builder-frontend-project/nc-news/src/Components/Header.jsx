@@ -1,9 +1,6 @@
-import {useContext} from "react";
 import {Link} from "react-router-dom";
-import { UserContext } from '../Contexts/userContext';
 
 const Header = (setQuery) => {
-    const { user, setUser } = useContext(UserContext);
 return (
     <header className='headerContainer'>
         <Link to="/" onClick={(()=>setQuery(""))}>

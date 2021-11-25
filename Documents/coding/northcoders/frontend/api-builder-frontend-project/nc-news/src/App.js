@@ -9,6 +9,7 @@ import { useState, useContext } from "react";
 import { UserContext } from "./Contexts/userContext";
 import Login from "./Components/Login";
 import RequireLogin from "./Components/RequireLogin";
+import { Comments } from "./Components/Comments";
 
 function App() {
   const { user, setUser, isLoggedIn, logOut } = useContext(UserContext);
@@ -35,6 +36,10 @@ function App() {
                   element={<Article query={query} />}
                 ></Route>
                 <Route path="/login" element={<Login />} />
+                <Route
+                  path="/articles/:article_id/comments"
+                  element={<Comments />}
+                ></Route>
               </Routes>
             </div>
           ) : (

@@ -10,13 +10,14 @@ export default function Login() {
       setUsers(users);
     });
 }, [])
-console.log(users)
+
 return (
     <main className="users-container">
         {users.map((user) => {
             return <div key={user.username} className="user-card">
                 <h2>{user.username}</h2>
                 <button onClick={() => {
+                    console.log(user)
                     setUser(user);
                 }}>
                     set user to {user.username}

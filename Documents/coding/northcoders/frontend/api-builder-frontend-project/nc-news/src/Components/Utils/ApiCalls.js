@@ -12,7 +12,6 @@ export function gettopics() {
 
 export function getArticles(query) {
   let queryStr = `/articles`;
-  console.log(query);
   if (query) {
     queryStr += `?topic=${query}`;
   }
@@ -24,7 +23,6 @@ export function getArticles(query) {
 export function getSingleArticle(article_id) {
   return newsApi.get(`/articles/${article_id}`).then((data) => {
     const { article } = data.data;
-    console.log(article);
     return article;
   });
 }
@@ -37,6 +35,7 @@ export function getUsers() {
 
 export const getArticleComments = (article_id) => {
   return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    console.log(res.data, "in Api Calls");
     return res.data.comments;
   });
 };
