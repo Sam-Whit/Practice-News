@@ -48,3 +48,18 @@ export const votesForArticle = (article_id, newVote) => {
       return response.data;
     });
 };
+
+export const deleteComment = (commentId) => {
+  return newsApi.delete(`/comments/${commentId}`).then((res) => {
+    return res.status;
+  });
+};
+
+export const postComment = (article_id, username, comment) => {
+  const commentObj = { username: username, body: comment };
+  return newsApi
+    .post(`/articles/${article_id}/comments`, commentObj)
+    .then((res) => {
+      return res.status;
+    });
+};
