@@ -34,3 +34,9 @@ export function getUsers() {
     return res.data.users;
   });
 }
+
+export const getArticleComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
+  });
+};
