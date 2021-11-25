@@ -5,10 +5,10 @@ import { getArticleComments } from "./Utils/ApiCalls";
 export const Comments = () => {
     const {article_id} = useParams();
     const [comments, setComments] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // setIsLoading(true);
+        setIsLoading(true);
         getArticleComments(article_id).then((comments) => {
             console.log(comments);
             setComments(comments)
@@ -17,6 +17,8 @@ export const Comments = () => {
             console.dir(err)
         })
     }, [article_id]);
+
+    const [addedVotes, setAddedVotes] = useState(0);
 
     if (isLoading) return <p>Loading...</p>;
     

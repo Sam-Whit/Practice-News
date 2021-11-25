@@ -39,3 +39,12 @@ export const getArticleComments = (article_id) => {
     return res.data.comments;
   });
 };
+
+export const votesForArticle = (article_id, newVote) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: newVote })
+    .then((response) => {
+      console.log(response.data);
+      return response.data;
+    });
+};
