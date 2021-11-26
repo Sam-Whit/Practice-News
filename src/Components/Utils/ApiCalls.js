@@ -10,8 +10,11 @@ export function gettopics() {
   });
 }
 
-export function getArticles(query) {
+export function getArticles(query, sortBy) {
   let queryStr = `/articles`;
+  if (query && sortBy) {
+    queryStr += `?topic=${query}&sort_by=${sortBy}`;
+  }
   if (query) {
     queryStr += `?topic=${query}`;
   }
