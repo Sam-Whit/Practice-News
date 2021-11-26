@@ -5,7 +5,7 @@ import NavBar from "./Components/NavBar";
 import SubNav from "./Components/SubNav";
 import Articles from "./Components/Articles";
 import Article from "./Components/Article";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { UserContext } from "./Contexts/userContext";
 import Login from "./Components/Login";
 import RequireLogin from "./Components/RequireLogin";
@@ -15,6 +15,11 @@ function App() {
   const { user, setUser, isLoggedIn, logOut } = useContext(UserContext);
   const [query, setQuery] = useState("");
   // const [user, setUser] = useState({}); //getRid & prop drilling
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) setUser(JSON.parse(user));
+  }, []);
 
   return (
     <BrowserRouter>

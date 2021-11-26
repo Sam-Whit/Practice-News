@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
@@ -8,6 +8,7 @@ export const UserProvider = ({ children }) => {
   const isLoggedIn = !!user.username;
 
   const logOut = () => {
+    localStorage.removeItem("user");
     setUser({});
   };
 
