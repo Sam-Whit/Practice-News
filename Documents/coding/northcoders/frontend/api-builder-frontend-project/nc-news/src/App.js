@@ -14,6 +14,7 @@ import { Comments } from "./Components/Comments";
 function App() {
   const { user, setUser, isLoggedIn, logOut } = useContext(UserContext);
   const [query, setQuery] = useState("");
+
   // const [user, setUser] = useState({}); //getRid & prop drilling
 
   useEffect(() => {

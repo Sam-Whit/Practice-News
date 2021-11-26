@@ -1,16 +1,18 @@
-import { useParams, Link, useNavigate  } from "react-router-dom";
+import { useParams, Link, Navigate  } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { getArticleComments, deleteComment } from "./Utils/ApiCalls";
 import { UserContext } from "../Contexts/userContext";
 import PostComment from "./PostComment";
 
+
 export const Comments = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { user } = useContext(UserContext);
     const {article_id} = useParams();
     const [comments, setComments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [postingComment, setPostingComment] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
 
     useEffect(() => {
@@ -44,6 +46,7 @@ export const Comments = () => {
     if (isLoading) return <p>Loading...</p>;
     
     return <div className="commentscontainer">
+        {redirect && <Navigate to={`/articles/${article_id}`} /> }
          <PostCommentHide>
         <PostComment/>
       </PostCommentHide>
@@ -58,11 +61,14 @@ return (
         <button
                 disabled={!(comment.author === user.username)}
                 onClick={() => {
-                  deleteComment(comment.comment_id).then(() => { navigate(`/articles/${article_id}/comments`)});
+                  deleteComment(comment.comment_id).then(() => {
+                     setRedirect(true);
+                  });
                 }}
               >
                 Delete comment
               </button>
+              
         </li>)
         })}
     </div>;

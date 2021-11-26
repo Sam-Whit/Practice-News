@@ -18,7 +18,7 @@ return (
                 <h2>{user.username}</h2>
                 <button onClick={() => {
                     console.log(user)
-                        localStorage.setItem('user', JSON.stringify(user))
+                    localStorage.setItem('user', JSON.stringify(user))
                     setUser(user);
                 }}>
                     set user to {user.username}
