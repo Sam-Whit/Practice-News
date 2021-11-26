@@ -8,6 +8,7 @@ const NewVotes = ({article_id, articleVotes}) => {
     const handleClick = (number) => {
         setUserVote((prevNum)=> prevNum + number);
         votesForArticle(article_id, number).catch((err)=>(console.dir(err)))
+        setUserVote((prevNum) => prevNum - number);
     };
     
     return(
