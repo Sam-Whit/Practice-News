@@ -1,0 +1,27 @@
+
+.votingArea {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.votingArea p {
+    color: #1D3557;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    text-align: center;
+    width: 3vw;
+}
+
+.votingArea .icon {
+    color: #1D3557;
+    cursor: pointer;
+    font-size: 3rem;
+}
+
+.votingArea .icon:hover {
+    color: #E63946;
+}

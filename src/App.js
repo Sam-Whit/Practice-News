@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import Header from "./Components/Header";
 import NavBar from "./Components/NavBar";
 import SubNav from "./Components/SubNav";
 import Articles from "./Components/Articles";
-import Article from "./Components/Article";
+import Article from "./Components/Article/Article";
 import { useState, useContext, useEffect } from "react";
 import { UserContext } from "./Contexts/userContext";
 import Login from "./Components/Login";
 import RequireLogin from "./Components/RequireLogin";
 import { Comments } from "./Components/Comments";
+import "./App.css";
 
 function App() {
   const { user, setUser, isLoggedIn, logOut } = useContext(UserContext);

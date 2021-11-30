@@ -1,0 +1,62 @@
+
+.article-detail-card {
+    background-color: #457B9D;
+    display: grid;
+    grid-gap: 5vw;
+    grid-template-areas: 'votingArea detailArea detailArea detailArea detailArea';
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 2vh;
+    padding: 2vw; 
+    width: 80vw; 
+}
+
+.article-detail-card h1 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.metadata {
+    display: grid;
+    grid-auto-flow: column;
+    width: 25vw;
+}
+
+.metadata > div {
+    background-color: #1D3557;
+    border-radius: 10px;
+    color: white;
+    padding: 0.5vw;
+    text-align: center;
+    vertical-align: middle;
+    width: fit-content;
+}
+
+.metadata > div .icon {
+    padding-right: 0.5vw;
+}
+
+.article-body {
+    font-size: 1.2rem;
+}
+
+.comment-btn {
+    background-color: silver;
+    border: 1px solid #1D3557;
+    border-radius: 5px;
+    color: #1D3557;
+    font-size: 1rem;
+    padding: 0.5vw;
+    width: fit-content;
+}
+
+.comment-btn .icon {
+    padding-right: 0.5vw;
+}
+
+.comment-btn:hover {
+    background-color: #E63946;
+    border-radius: 5px;
+    color: white;
+}
